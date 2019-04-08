@@ -1,6 +1,6 @@
 import xs, { Stream } from 'xstream';
 import sampleCombine from 'xstream/extra/sampleCombine';
-import { VNode, DOMSource, div, h2, textarea, button } from '@cycle/dom';
+import { VNode, DOMSource, div, h2, p, textarea, button } from '@cycle/dom';
 
 import { Sources, Sinks, Reducer } from '../interfaces';
 
@@ -40,19 +40,20 @@ function model(updateText$: Stream<string>): Stream<Reducer<State>> {
 function view(state$: Stream<State>): Stream<VNode> {
     return state$.map(({ text }) =>
         div([
-            h2('My Awesome Cycle.js app - Page 2'),
-            textarea({
-                attrs: { id: 'text', rows: '3' },
-                props: { value: text }
-            }),
-            button(
-                { attrs: { type: 'button' }, dataset: { action: 'speak' } },
-                ['Speak to Me!']
-            ),
-            button(
-                { attrs: { type: 'button' }, dataset: { action: 'navigate' } },
-                ['Page 1']
-            )
+            div([
+                h2('Fala meu companheiro'),
+                p('Ofenda seu amigo com voz do google translate'),
+                textarea({
+                    attrs: { id: 'text', rows: '3' },
+                    props: { value: text }
+                }),
+            ]),
+            div([
+                button(
+                    { attrs: { type: 'button' }, dataset: { action: 'speak' } },
+                    ['Speak to Me!']
+                )
+            ]),
         ])
     );
 }

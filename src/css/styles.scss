@@ -8,3 +8,17 @@ button,
 textarea {
     margin: 0.5em;
 }
+
+button {
+    background-color: #5e5c5c;
+    color: #ffffff;
+    border-radius: 6px;
+    padding: 6px 16px;
+}
+
+textarea {
+    width: 300px;
+    height: 200px;
+    border-radius: 6px;
+    resize: none;
+}
